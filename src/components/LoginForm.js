@@ -37,7 +37,6 @@ const LoginForm = ({ darkMode }) => {
       .then((response) => response.json())
 
       // Displaying results to console
-      .then((json) => console.log(json))
       .then(() => {
         $(".email").addClass("d-none");
         $(".sendingAlert").addClass("d-none");
@@ -76,14 +75,13 @@ const LoginForm = ({ darkMode }) => {
         } else {
           $(".sentAlert").addClass("d-none");
           $(".invalidotp").removeClass("d-none");
-          console.log("No token");
         }
       })
       .catch((err) => console.log(err));
   };
   return (
     <div
-      className={`container card  border shadow-lg rounded bg-gradient me-5 ms-5 ${darkMode ? "bg-dark" : "bg-light"}`}
+      className={`container card  border shadow-lg rounded bg-gradient ${darkMode ? "bg-dark" : "bg-light"}`}
       style={{ marginTop: "30vh" }}
     >
       <Card>
