@@ -71,6 +71,7 @@ const LoginForm = ({ darkMode }) => {
       .then((json) => {
         if (json.token) {
           localStorage.setItem("Token", json.token);
+          $('.navigation').removeClass('d-none')
           navigate("/")
         } else {
           $(".sentAlert").addClass("d-none");
@@ -82,12 +83,12 @@ const LoginForm = ({ darkMode }) => {
   };
   return (
     <div
-      className="{darkMode ? 'bg-dark' : 'bg-light'}container card  border shadow-lg rounded bg-gradient me-5 ms-5"
+      className={`container card  border shadow-lg rounded bg-gradient me-5 ms-5 ${darkMode ? "bg-dark" : "bg-light"}`}
       style={{ marginTop: "30vh" }}
     >
       <Card>
         <Card.Body
-          className={darkMode ? "bg-dark text-light" : "bg-light text-dark"}
+          className={`bg-gradient ${darkMode ? "bg-dark text-light" : "bg-light text-dark"}`}
         >
           <Card.Title>Login Form</Card.Title>
           <Form onSubmit={handleEmailSubmit} className="email">
