@@ -1,0 +1,6 @@
+url: accounts/ methods:POST
+
+
+url:Notes/ methods:GET
+url:Notes/CreateNote/ methods:POST
+url:Notes/GetDeleteUpdateNotes/<int:pk>/ methods:['PATCH','DELETE','GET','PUT']
