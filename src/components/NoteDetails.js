@@ -3,7 +3,6 @@ import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import { useState, useEffect } from "react";
 import $ from "jquery";
-import { useSearchParams } from 'react-router-dom'
 import { useNavigate } from "react-router-dom";
 
 
@@ -26,6 +25,23 @@ const NoteDetails = ({darkMode}) => {
                 title: Title,
                 content:Content
               }),
+            headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+              authtoken: AuthToken,
+            },
+          })
+            // Converting to JSON
+            .then((response) => {
+              navigate("/")
+            })
+            .catch((err) => console.log(err));
+    }
+
+    const DeleteNote = () => {
+        fetch(`http://127.0.0.1:8000/Notes/GetDeleteUpdateNotes/${lastSegment}`, {
+            // Adding method type
+            method: "DELETE",
             headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
@@ -80,7 +96,7 @@ const NoteDetails = ({darkMode}) => {
   return (
     <div className={`m-3 p-3`}>
         <button className='mb-4 float-start btn btn-outline-primary'  onClick={() => {saveNote()}}>Go Back</button>
-        <button className='mb-4 float-end btn btn-outline-danger'>Delete</button>
+        <button className='mb-4 float-end btn btn-outline-danger' onClick={() => {DeleteNote()}}>Delete</button>
         <Form onSubmit ={FormSubmit}>
          <InputGroup className="mb-3">        
         <Form.Control

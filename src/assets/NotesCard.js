@@ -1,10 +1,14 @@
 import Card from "react-bootstrap/Card";
 import { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
+import { useNavigate } from "react-router-dom";
 
 const NotesCard = ({ darkMode }) => {
   const [NotesList, getNotes] = useState([]);
   const [AuthToken, GetToken] = useState(localStorage.getItem("Token"));
+  let navigate = useNavigate();
+
+  
   const GetNotes = () => {
     fetch("http://127.0.0.1:8000/Notes", {
       // Adding method type
@@ -22,14 +26,33 @@ const NotesCard = ({ darkMode }) => {
       })
       // Displaying results to console
       .then((json) => {
-        console.log(json);
         getNotes(json);
       })
       .catch((err) => console.log(err));
   };
 
   const CreateNote =() =>{
-    
+    fetch(`http://127.0.0.1:8000/Notes/CreateNote/`, {
+        // Adding method type
+        method: "POST",        
+        headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+          authtoken: AuthToken,
+        },
+      })
+        // Converting to JSON
+        .then((response) => {
+            return response.json()
+        })
+        .then((json)=>{
+            navigate(`/notes/${json}`)
+        })
+        .catch((err) => console.log(err));
+  }
+
+  const ShowDetail =(id) =>{
+    navigate(`/notes/${id}`)
   }
 
   useEffect(() => {
@@ -46,7 +69,7 @@ const NotesCard = ({ darkMode }) => {
           <Card
             className={`mb-2 ${darkMode ? "text-bg-dark" : "text-bg-light"}`}
             key={note.id}
-            onClick={() => {}}
+            onClick={() => {ShowDetail(note.id)}}
           >
             <Card.Header>{note.title}</Card.Header>
             <Card.Body>{note.content}</Card.Body>
@@ -59,6 +82,7 @@ const NotesCard = ({ darkMode }) => {
       <Button
         className={`${darkMode ? "text-bg-dark" : "text-bg-light"}`}
         style={{ position: "fixed", bottom: "10vh", right: "8vh" }}
+        onClick={() => {CreateNote()}}
       >
         <i className="bi bi-plus-lg" style={{ fontSize: "1.5rem" }}></i>
       </Button>
