@@ -65,7 +65,7 @@ const LoginForm = ({ darkMode }) => {
 // Displaying results to console
 .then(json => {
   if (json.token){
-    localStorage.setItem('Token',json.toke  n)
+    localStorage.setItem('Token',json.token)
   }
   else{
     $('.sentAlert').addClass('d-none');
