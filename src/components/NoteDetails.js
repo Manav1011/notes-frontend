@@ -92,29 +92,29 @@ const NoteDetails = ({darkMode}) => {
         getNote()        
     },[])
 
-    const saveNoteOnChange = () => {
-      fetch(`https://personalnotes-backend.herokuapp.com/Notes/GetDeleteUpdateNotes/${lastSegment}`, {
-          // Adding method type
-          method: "PATCH",
-          body: JSON.stringify({
-              title: Title,
-              content:Content
-            }),
-          headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-            authtoken: AuthToken,
-          },
-        })
-          // Converting to JSON
-          .then((response) => {
-          })
-          .catch((err) => console.log(err));
-  }
+  //   const saveNoteOnChange = () => {
+  //     fetch(`https://personalnotes-backend.herokuapp.com/Notes/GetDeleteUpdateNotes/${lastSegment}`, {
+  //         // Adding method type
+  //         method: "PATCH",
+  //         body: JSON.stringify({
+  //             title: Title,
+  //             content:Content
+  //           }),
+  //         headers: {
+  //         'Accept': 'application/json',
+  //         'Content-Type': 'application/json',
+  //           authtoken: AuthToken,
+  //         },
+  //       })
+  //         // Converting to JSON
+  //         .then((response) => {
+  //         })
+  //         .catch((err) => console.log(err));
+  // }
 
-    useEffect(() => {      
-      saveNoteOnChange()
-    },[Title,Content])
+  //   useEffect(() => {      
+  //     saveNoteOnChange()
+  //   },[Title,Content])
 
   return (
     <div className={`m-3 p-3`}>
