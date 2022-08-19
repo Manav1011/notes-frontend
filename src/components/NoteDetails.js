@@ -89,32 +89,9 @@ const NoteDetails = ({darkMode}) => {
     var yPositionOfNewElement = el.offsetTop;
     var bodyheight=$(document).height()-60
     $('#bodycontent').height(bodyheight-yPositionOfNewElement)
-        getNote()        
+        getNote()
     },[])
 
-  //   const saveNoteOnChange = () => {
-  //     fetch(`https://personalnotes-backend.herokuapp.com/Notes/GetDeleteUpdateNotes/${lastSegment}`, {
-  //         // Adding method type
-  //         method: "PATCH",
-  //         body: JSON.stringify({
-  //             title: Title,
-  //             content:Content
-  //           }),
-  //         headers: {
-  //         'Accept': 'application/json',
-  //         'Content-Type': 'application/json',
-  //           authtoken: AuthToken,
-  //         },
-  //       })
-  //         // Converting to JSON
-  //         .then((response) => {
-  //         })
-  //         .catch((err) => console.log(err));
-  // }
-
-  //   useEffect(() => {      
-  //     saveNoteOnChange()
-  //   },[Title,Content])
 
   return (
     <div className={`m-3 p-3`}>
