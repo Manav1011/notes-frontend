@@ -84,12 +84,17 @@ const NoteDetails = ({darkMode}) => {
         saveNote()
     }
 
+    const componentunmount =() =>{
+      console.log("Component unmount")
+    }
+
     useEffect(() => {
         var el=document.getElementById('bodycontent')
     var yPositionOfNewElement = el.offsetTop;
     var bodyheight=$(document).height()-60
     $('#bodycontent').height(bodyheight-yPositionOfNewElement)
         getNote()
+        return  componentunmount()
     },[])
 
 
