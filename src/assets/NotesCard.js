@@ -10,7 +10,7 @@ const NotesCard = ({ darkMode }) => {
 
   
   const GetNotes = () => {
-    fetch("http://127.0.0.1:8000/Notes", {
+    fetch("https://personalnotes-backend.herokuapp.com/Notes", {
       // Adding method type
       method: "GET",
 
@@ -32,7 +32,7 @@ const NotesCard = ({ darkMode }) => {
   };
 
   const CreateNote =() =>{
-    fetch(`http://127.0.0.1:8000/Notes/CreateNote/`, {
+    fetch(`https://personalnotes-backend.herokuapp.com/Notes/CreateNote/`, {
         // Adding method type
         method: "POST",        
         headers: {

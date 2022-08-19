@@ -19,7 +19,7 @@ const LoginForm = ({ darkMode }) => {
   const handleEmailSubmit = (event) => {
     event.preventDefault();
     $(".sendingAlert").removeClass("d-none");
-    fetch("http://127.0.0.1:8000/accounts/", {
+    fetch("https://personalnotes-backend.herokuapp.com/accounts/", {
       // Adding method type
       method: "POST",
 
@@ -49,7 +49,7 @@ const LoginForm = ({ darkMode }) => {
   const handleOtpSubmit = (event) => {
     event.preventDefault();
 
-    fetch("http://127.0.0.1:8000/accounts/", {
+    fetch("https://personalnotes-backend.herokuapp.com/accounts/", {
       // Adding method type
       method: "POST",
 

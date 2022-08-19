@@ -18,7 +18,7 @@ const NoteDetails = ({darkMode}) => {
     const lastSegment = url.split("/").pop();
 
     const saveNote = () => {
-        fetch(`http://127.0.0.1:8000/Notes/GetDeleteUpdateNotes/${lastSegment}`, {
+        fetch(`https://personalnotes-backend.herokuapp.com/Notes/GetDeleteUpdateNotes/${lastSegment}`, {
             // Adding method type
             method: "PATCH",
             body: JSON.stringify({
@@ -39,7 +39,7 @@ const NoteDetails = ({darkMode}) => {
     }
 
     const DeleteNote = () => {
-        fetch(`http://127.0.0.1:8000/Notes/GetDeleteUpdateNotes/${lastSegment}`, {
+        fetch(`https://personalnotes-backend.herokuapp.com/Notes/GetDeleteUpdateNotes/${lastSegment}`, {
             // Adding method type
             method: "DELETE",
             headers: {
@@ -57,7 +57,7 @@ const NoteDetails = ({darkMode}) => {
 
 
     const getNote=() => {
-        fetch(`http://127.0.0.1:8000/Notes/GetDeleteUpdateNotes/${lastSegment}`, {
+        fetch(`https://personalnotes-backend.herokuapp.com/Notes/GetDeleteUpdateNotes/${lastSegment}`, {
       // Adding method type
       method: "GET",
       // Adding body or contents to send
