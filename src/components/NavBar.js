@@ -39,8 +39,8 @@ const NavigationBar = ({darkMode,changeTheme}) => {
           <Nav className="me-auto">
             <Nav.Link onClick={() => Logout()}>Logout</Nav.Link>
             <NavDropdown title="Github" id="basic-nav-dropdown" >
-              <NavDropdown.Item href="#action/3.1">Backend</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.1">Frontend</NavDropdown.Item>
+              <NavDropdown.Item href="https://github.com/Manav1011/notes_backend">Backend</NavDropdown.Item>
+              <NavDropdown.Item href="https://github.com/Manav1011/notes-frontend">Frontend</NavDropdown.Item>
             </NavDropdown>
             <Nav.Link onClick={() => { changeState(darkMode) }}>{darkMode ? `Theme: Dark` : `Theme: Light`}</Nav.Link>
           </Nav>
