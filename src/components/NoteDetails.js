@@ -93,6 +93,7 @@ const NoteDetails = ({darkMode}) => {
     },[])
 
     useEffect(() => {
+      console.log("changed")
       saveNote()
     },[Title,Content])
 
