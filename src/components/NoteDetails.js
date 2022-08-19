@@ -90,6 +90,9 @@ const NoteDetails = ({darkMode}) => {
     var bodyheight=$(document).height()-60
     $('#bodycontent').height(bodyheight-yPositionOfNewElement)
         getNote()
+        return () => {
+          saveNote()
+      }
     },[])
 
 
