@@ -25,7 +25,7 @@ const LoginForm = ({ darkMode }) => {
 
       // Adding body or contents to send
       body: JSON.stringify({
-        email: email.toLowerCase(),
+        email: email,
       }),
 
       // Adding headers to the request
@@ -105,7 +105,7 @@ const LoginForm = ({ darkMode }) => {
                 type="email"
                 placeholder="Enter email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => setEmail((e.target.value).toLowerCase())}
               />
               <Form.Text className="text-muted">
                 We'll never share your email with anyone else.
