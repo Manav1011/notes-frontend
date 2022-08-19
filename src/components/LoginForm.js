@@ -48,7 +48,7 @@ const LoginForm = ({ darkMode }) => {
 
   const handleOtpSubmit = (event) => {
     event.preventDefault();
-
+    console.log(email)
     fetch("https://personalnotes-backend.herokuapp.com/accounts/", {
       // Adding method type
       method: "POST",
