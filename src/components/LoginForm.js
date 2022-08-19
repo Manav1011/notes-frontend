@@ -25,7 +25,7 @@ const LoginForm = ({ darkMode }) => {
 
       // Adding body or contents to send
       body: JSON.stringify({
-        email: email,
+        email: email.toLowerCase(),
       }),
 
       // Adding headers to the request
