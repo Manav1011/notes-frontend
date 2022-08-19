@@ -11,7 +11,8 @@ import $ from "jquery";
 
 
 const NavigationBar = ({darkMode,changeTheme}) => {    
-    const [token,setToken]=useState(localStorage.getItem('Token'))
+    let Token=localStorage.getItem('Token')
+    const [token,setToken]=useState(Token)
     let navigate = useNavigate();
     useEffect(() => {
         if (!token){
@@ -19,10 +20,15 @@ const NavigationBar = ({darkMode,changeTheme}) => {
          navigate("/login")         
         }
     },[token])
-    const Logout= ()=>{  
-        localStorage.removeItem('Token')
-        setToken(null) 
+
+    const Logout= ()=>{          
+        setToken(null)        
     }       
+
+    const RemoveToken =(Callback) =>{
+      localStorage.removeItem('Token')
+      Callback()
+    }
 
     const changeState = (darkMode) =>{
         changeTheme(!darkMode)        
@@ -35,7 +41,7 @@ const NavigationBar = ({darkMode,changeTheme}) => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link onClick={Logout}>Logout</Nav.Link>
+            <Nav.Link onClick={() => RemoveToken(Logout)}>Logout</Nav.Link>
             <NavDropdown title="Github" id="basic-nav-dropdown" >
               <NavDropdown.Item href="#action/3.1">Backend</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.1">Frontend</NavDropdown.Item>
