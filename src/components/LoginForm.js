@@ -120,7 +120,8 @@ const LoginForm = ({ darkMode }) => {
             <div className="sentAlert d-none">
               {["success"].map((variant) => (
                 <Alert key={variant} variant={variant}>
-                  OTP Sent!!
+                  OTP Sent!!<br/>
+                  Check you email or SPAM folder
                 </Alert>
               ))}
             </div>
