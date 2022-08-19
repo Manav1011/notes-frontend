@@ -22,26 +22,22 @@ const NavigationBar = ({darkMode,changeTheme}) => {
     },[token])
 
     const Logout= ()=>{          
-        setToken(null)        
-    }       
-
-    const RemoveToken =(Callback) =>{
-      localStorage.removeItem('Token')
-      Callback()
+        $('.navigation').addClass('d-none')
+        localStorage.removeItem('Token')
+        navigate("/login")    
     }
-
     const changeState = (darkMode) =>{
         changeTheme(!darkMode)        
       }
   return (    
     <div className={`navigation `}>
-        <Navbar className={darkMode ? 'navbar-dark' : ''}>
+        <Navbar className={darkMode ? 'navbar-dark' : ''} style={{fontSize: '0.7rem'}}>
       <Container>
         <Navbar.Brand><img src="https://img.icons8.com/windows/32/12B886/django.png"/> + <img src="https://img.icons8.com/color/32/000000/react-native.png"/> Notes</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link onClick={() => RemoveToken(Logout)}>Logout</Nav.Link>
+            <Nav.Link onClick={() => Logout()}>Logout</Nav.Link>
             <NavDropdown title="Github" id="basic-nav-dropdown" >
               <NavDropdown.Item href="#action/3.1">Backend</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.1">Frontend</NavDropdown.Item>

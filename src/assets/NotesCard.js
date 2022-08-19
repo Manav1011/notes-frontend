@@ -81,7 +81,7 @@ const NotesCard = ({ darkMode }) => {
       )}
       <Button
         className={`${darkMode ? "text-bg-dark" : "text-bg-light"}`}
-        style={{ position: "fixed", bottom: "10vh", right: "8vh" }}
+        style={{ position: "fixed", bottom: "10vh", right: "5vh" }}
         onClick={() => {CreateNote()}}
       >
         <i className="bi bi-plus-lg" style={{ fontSize: "1.5rem" }}></i>
