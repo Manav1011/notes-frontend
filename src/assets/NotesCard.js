@@ -1,7 +1,7 @@
 import Card from "react-bootstrap/Card";
 import { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 
 const NotesCard = ({ darkMode }) => {
   const [NotesList, getNotes] = useState([]);
@@ -72,7 +72,7 @@ const NotesCard = ({ darkMode }) => {
             onClick={() => {ShowDetail(note.id)}}
           >
             <Card.Header>{note.title}</Card.Header>
-            <Card.Body>{note.content}</Card.Body>
+            <Card.Body>{note.content.substring(0, 50)} <Link to={`/notes/${note.id}`}>read more...</Link></Card.Body>
             <Card.Footer>
               <small className="text-muted">Last Updated: {note.updated}</small>
             </Card.Footer>
