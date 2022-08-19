@@ -20,7 +20,7 @@ function App() {
       
       <Routes>
       <Route path='/' exact element={<HomeComponent darkMode={darkMode}/>}/>
-      <Route path='/login' element={<LoginForm darkMode={darkMode} />}/>
+      <Route path='/login' exact element={<LoginForm darkMode={darkMode} />}/>
       <Route path='/notes/:id' element={<NoteDetails darkMode={darkMode} />}/>
       </Routes>
     </div>
