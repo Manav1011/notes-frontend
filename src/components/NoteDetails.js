@@ -89,12 +89,12 @@ const NoteDetails = ({darkMode}) => {
     var yPositionOfNewElement = el.offsetTop;
     var bodyheight=$(document).height()-60
     $('#bodycontent').height(bodyheight-yPositionOfNewElement)
-        getNote()
-        return () => {
-          saveNote()
-      }
+        getNote()        
     },[])
 
+    useEffect(() => {
+      saveNote()
+    },[Title,Content])
 
   return (
     <div className={`m-3 p-3`}>
