@@ -113,7 +113,7 @@ const NoteDetails = ({darkMode}) => {
           onChange={(e) => SetContent(e.target.value)} as="textarea" aria-label="With textarea"  className={`${darkMode ? 'bg-dark text-light' : 'bg-light text-dark'}`}/>
       </InputGroup>
       </Form>
-      <button className='mb-4 form-control mt-2 btn btn-outline-success' onClick={() => {saveNote()}}>Save</button>
+      <button className={`mb-4 form-control mt-2 btn ${darkMode ? 'btn-outline-light':'btn-outline-dark'}`} onClick={() => {saveNote()}}>Save</button>
     </div>
   )
 }
