@@ -15,9 +15,6 @@ const LoginForm = ({ darkMode }) => {
     if (token){
      navigate("/")
     }
-    else{
-      navigate('/login')
-    }
 },[])
   const handleEmailSubmit = (event) => {
     event.preventDefault();
