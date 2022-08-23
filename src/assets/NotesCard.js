@@ -62,7 +62,7 @@ const NotesCard = ({ darkMode }) => {
     <>
       {NotesList.length == 0 ? (
         <Card body className={`${darkMode ? "text-bg-dark" : "text-bg-light"}`}>
-          No Notes Yet
+          Fetching Notes....
         </Card>
       ) : (
         NotesList.map((note) => (
