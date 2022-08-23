@@ -21,12 +21,15 @@ const NotesCard = ({ darkMode }) => {
       },
     })
       // Converting to JSON
-      .then((response) => {
+      .then((response) => {        
         return response.json();
       })
       // Displaying results to console
       .then((json) => {
         getNotes(json);
+        if (NotesList.length == 0){
+        document.getElementById('NotesCard').textContent='No Notes Yet!!'
+        }
       })
       .catch((err) => console.log(err));
   };
@@ -56,13 +59,14 @@ const NotesCard = ({ darkMode }) => {
   }
 
   useEffect(() => {
+    document.getElementById('NotesCard').textContent='Fetching Notes....'
     GetNotes();
   }, []);
   return (
     <>
       {NotesList.length == 0 ? (
         <Card body className={`${darkMode ? "text-bg-dark" : "text-bg-light"}`}>
-          Fetching Notes....
+          <span className="card-title" id="NotesCard"></span>
         </Card>
       ) : (
         NotesList.map((note) => (
