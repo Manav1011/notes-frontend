@@ -37,7 +37,11 @@ const NotesCard = ({ darkMode }) => {
   const CreateNote =() =>{
     fetch(`https://personalnotes-backend.herokuapp.com/Notes/CreateNote/`, {
         // Adding method type
-        method: "POST",        
+        method: "POST",       
+        body: JSON.stringify({
+          title: 'Add Titlte!!',
+          content:'Add Content!!'
+        }), 
         headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
