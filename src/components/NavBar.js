@@ -24,16 +24,19 @@ const NavigationBar = ({darkMode,changeTheme}) => {
     const Logout= ()=>{          
         $('.navigation').addClass('d-none')
         localStorage.removeItem('Token')
-        navigate("/login")    
+        navigate("/login")
     }
     const changeState = (darkMode) =>{
         changeTheme(!darkMode)        
+      }
+      const GoHome = () => {
+        navigate("/")
       }
   return (    
     <div className={`navigation `}>
         <Navbar className={darkMode ? 'navbar-dark' : ''} style={{fontSize: '0.7rem'}}>
       <Container>
-        <Navbar.Brand><img src="https://img.icons8.com/windows/32/12B886/django.png"/> + <img src="https://img.icons8.com/color/32/000000/react-native.png"/> Notes</Navbar.Brand>
+        <Navbar.Brand className='btn border border-0' onClick={() => GoHome()}><img src="https://img.icons8.com/windows/32/12B886/django.png"/> + <img src="https://img.icons8.com/color/32/000000/react-native.png"/> Notes</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
