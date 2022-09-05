@@ -75,6 +75,9 @@ const NoteDetails = ({darkMode}) => {
         GetNote(json);
         SetTitle(json.title)
         SetContent(json.content)
+        document.getElementById('SaveButton').classList.remove('d-none')
+        document.getElementById('gobackbutton').classList.remove('d-none')
+      document.getElementById('deletebutton').classList.remove('d-none')
       })      
       .catch((err) => console.log(err));
     }
@@ -89,14 +92,17 @@ const NoteDetails = ({darkMode}) => {
     var yPositionOfNewElement = el.offsetTop;
     var bodyheight=$(document).height()-60
     $('#bodycontent').height(bodyheight-yPositionOfNewElement)
+    document.getElementById('SaveButton').classList.add('d-none')
+    document.getElementById('gobackbutton').classList.add('d-none')
+    document.getElementById('deletebutton').classList.add('d-none')
         getNote()
     },[])
 
 
   return (
     <div className={`m-3 p-3`}>
-        <button className='mb-4 float-start btn btn-outline-primary'  onClick={() => {saveNote()}}>Go Back</button>
-        <button className='mb-4 float-end btn btn-outline-danger' onClick={() => {DeleteNote()}}>Delete</button>
+        <button id='gobackbutton' className='mb-4 float-start btn btn-outline-primary'  onClick={() => {saveNote()}}>Go Back</button>
+        <button id='deletebutton'  className='mb-4 float-end btn btn-outline-danger' onClick={() => {DeleteNote()}}>Delete</button>
         <Form onSubmit ={FormSubmit}>
          <InputGroup className="mb-3">        
         <Form.Control
@@ -114,7 +120,7 @@ const NoteDetails = ({darkMode}) => {
           onChange={(e) => SetContent(e.target.value)} as="textarea" aria-label="With textarea"  className={`${darkMode ? 'bg-dark text-light' : 'bg-light text-dark'}`}/>
       </InputGroup>
       </Form>
-      <button className={`mb-4 form-control mt-2 btn ${darkMode ? 'btn-outline-light':'btn-outline-dark'}`} onClick={() => {saveNote()}}>Save</button>
+      <button id="SaveButton" className={`mb-4 form-control mt-2 btn ${darkMode ? 'btn-outline-light':'btn-outline-dark'}`} onClick={() => {saveNote()}}>Save</button>
     </div>
   )
 }
