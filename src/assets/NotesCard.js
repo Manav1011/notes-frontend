@@ -39,8 +39,8 @@ const NotesCard = ({ darkMode }) => {
         // Adding method type
         method: "POST",       
         body: JSON.stringify({
-          title: 'Add Titlte!!',
-          content:'Add Content!!'
+          title: '',
+          content:''
         }), 
         headers: {
         'Accept': 'application/json',

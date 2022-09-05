@@ -8,8 +8,8 @@ import { useNavigate } from "react-router-dom";
 
 const NoteDetails = ({darkMode}) => {  
     const [AuthToken, GetToken] = useState(localStorage.getItem("Token"));
-    const [Title,SetTitle]=useState('Null')
-    const [Content,SetContent]=useState('Null')
+    const [Title,SetTitle]=useState('')
+    const [Content,SetContent]=useState('')
     const [Note,GetNote]=useState([])
     let navigate = useNavigate();
 
@@ -100,7 +100,7 @@ const NoteDetails = ({darkMode}) => {
         <Form onSubmit ={FormSubmit}>
          <InputGroup className="mb-3">        
         <Form.Control
-          placeholder=""
+          placeholder="Title.."
           aria-label="Username"
           className={darkMode ? 'bg-dark text-light' : 'bg-light text-dark'}
           aria-describedby="basic-addon1"
@@ -110,6 +110,7 @@ const NoteDetails = ({darkMode}) => {
       </InputGroup>      
       <InputGroup id="bodycontent">
         <Form.Control value={Content}
+        placeholder="Content..."
           onChange={(e) => SetContent(e.target.value)} as="textarea" aria-label="With textarea"  className={`${darkMode ? 'bg-dark text-light' : 'bg-light text-dark'}`}/>
       </InputGroup>
       </Form>
