@@ -17,8 +17,29 @@ const NoteDetails = ({darkMode}) => {
     let url=window.location.href
     const lastSegment = url.split("/").pop();
 
-    const saveNote = () => {      
-        fetch(`https://personalnotes-backend.herokuapp.com/Notes/GetDeleteUpdateNotes/${lastSegment}`, {
+    const saveNote = () => {
+      if (Title === ''){        
+        fetch(`https://personalnotes-backend.herokuapp.com/Notes/GetDeleteUpdateNotes/${lastSegment}`,{
+            // Adding method type
+            method: "PATCH",
+            body: JSON.stringify({
+                title: Content.slice(0,10),
+                content:Content
+              }),
+            headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+              authtoken: AuthToken,
+            },
+          })
+            // Converting to JSON
+            .then((response) => {
+              navigate("/")
+            })
+            .catch((err) => console.log(err));
+      }
+      else{
+        fetch(`https://personalnotes-backend.herokuapp.com/Notes/GetDeleteUpdateNotes/${lastSegment}`,{
             // Adding method type
             method: "PATCH",
             body: JSON.stringify({
@@ -36,6 +57,7 @@ const NoteDetails = ({darkMode}) => {
               navigate("/")
             })
             .catch((err) => console.log(err));
+      }
     }
 
     const DeleteNote = () => {
@@ -117,7 +139,7 @@ const NoteDetails = ({darkMode}) => {
       <InputGroup id="bodycontent">
         <Form.Control value={Content}
         placeholder="Content..."
-          onChange={(e) => {SetContent(e.target.value); SetTitle(e.target.value.slice(0,10))}} as="textarea" aria-label="With textarea"  className={`${darkMode ? 'bg-dark text-light' : 'bg-light text-dark'}`}/>
+          onChange={(e) => {SetContent(e.target.value);}} as="textarea" aria-label="With textarea"  className={`${darkMode ? 'bg-dark text-light' : 'bg-light text-dark'}`}/>
       </InputGroup>
       </Form>
       <button id="SaveButton" className={`mb-4 form-control mt-2 btn ${darkMode ? 'btn-outline-light':'btn-outline-dark'}`} onClick={() => {saveNote()}}>Save</button>
