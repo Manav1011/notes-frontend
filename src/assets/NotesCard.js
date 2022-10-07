@@ -82,7 +82,7 @@ const NotesCard = ({ darkMode }) => {
             <Card.Header className='news-card__title'>{note.title}</Card.Header>
             <Card.Body class='fw-bold news-card__post-date p-3'>{note.content.substring(0, 50)} <Link to={`/notes/${note.id}`}>read more...</Link></Card.Body>
             <Card.Footer class="news-card__details-wrapper">
-              <small className="news-card__excerpt p-4">Last Updated: {note.updated}</small>
+              <small className="fs-smaller news-card__excerpt p-4" style={{fontSize:"0.8rem"}}>Last Updated: {note.updated}</small>
             </Card.Footer>
           </Card>
         ))
