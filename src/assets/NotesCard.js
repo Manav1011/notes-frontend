@@ -75,7 +75,7 @@ const NotesCard = ({ darkMode }) => {
       ) : (
         NotesList.map((note) => (
           <Card
-            className={`news-card ${darkMode ? "text-bg-dark" : "text-bg-light"}`}
+            className={`m-3 news-card ${darkMode ? "text-bg-dark" : "text-bg-light"}`}
             key={note.id}
             onClick={() => {ShowDetail(note.id)}}            
           >
