@@ -67,22 +67,22 @@ const NotesCard = ({ darkMode }) => {
     GetNotes();
   }, []);
   return (
-    <>
+    <div className="content-wrapper">
       {NotesList.length == 0 ? (
-        <Card body className={`${darkMode ? "text-bg-dark" : "text-bg-light"}`}>
+        <Card body className={`w-100 ${darkMode ? "text-bg-dark" : "text-bg-light"}`}>
           <span className="card-title" id="NotesCard"></span>
         </Card>
       ) : (
         NotesList.map((note) => (
           <Card
-            className={`mb-2 ${darkMode ? "text-bg-dark" : "text-bg-light"}`}
+            className={`news-card ${darkMode ? "text-bg-dark" : "text-bg-light"}`}
             key={note.id}
-            onClick={() => {ShowDetail(note.id)}}
+            onClick={() => {ShowDetail(note.id)}}            
           >
-            <Card.Header>{note.title}</Card.Header>
-            <Card.Body>{note.content.substring(0, 50)} <Link to={`/notes/${note.id}`}>read more...</Link></Card.Body>
-            <Card.Footer>
-              <small className="text-muted">Last Updated: {note.updated}</small>
+            <Card.Header className='news-card__title'>{note.title}</Card.Header>
+            <Card.Body class='fw-bold news-card__post-date p-3'>{note.content.substring(0, 50)} <Link to={`/notes/${note.id}`}>read more...</Link></Card.Body>
+            <Card.Footer class="news-card__details-wrapper">
+              <small className="news-card__excerpt p-4">Last Updated: {note.updated}</small>
             </Card.Footer>
           </Card>
         ))
@@ -94,7 +94,7 @@ const NotesCard = ({ darkMode }) => {
       >
         <i className="bi bi-plus-lg" style={{ fontSize: "1.5rem" }}></i>
       </Button>
-    </>
+    </div>
   );
 };
 
